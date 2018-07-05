@@ -1,0 +1,16 @@
+{
+  "name": "subwatch",
+  "version": "1.0.0",
+  "description": "youtube subcount watcher",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Danex2",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "discord.js": "^11.3.2",
+    "nodemon": "^1.17.5"
+  }
+}
