@@ -3,23 +3,22 @@ const botSettings = require("./../botSettings.json");
 const axios = require("axios");
 
 module.exports.run = async (bot, message, args) => {
-  const channel = args[0];
-  axios
+  /*axios
     .get("https://www.googleapis.com/youtube/v3/channels", {
       params: {
-        part: id,
-        forUsername: "GoogleDevelopers",
+        part: "statistics",
+        id: "UCEngeu7blnMQ6bOS2TRQLRw",
         key: botSettings.ytKey
       }
     })
     .then(function(response) {
       // handle success
-      console.log(response.data);
+      console.log(response);
     })
     .catch(function(error) {
       // handle error
       console.log(error);
-    });
+    });*/
 };
 
 module.exports.help = {
