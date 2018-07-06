@@ -2,11 +2,12 @@ const Discord = require("discord.js");
 const youtube = require("../youtube.json");
 
 module.exports.run = async (bot, message, args) => {
-  /*Object.keys(youtube.channels).forEach(key => {
-    let names = youtube.channels[key].name;
-    message.channel.send(names);
-  });*/
-  console.log(youtube.channels);
+  let names = [];
+  Object.keys(youtube.channels).forEach(key => {
+    names.push(youtube.channels[key].name);
+  });
+  const embed = new Discord.RichEmbed().addField("Channels", names.join("\n"));
+  message.channel.send({ embed });
 };
 
 module.exports.help = {
