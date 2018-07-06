@@ -12,12 +12,7 @@ module.exports.run = async (bot, message, args) => {
       );
     } else {
       youtube.channels.push({ name, id });
-      fs.writeFile(
-        "./youtube.json",
-        JSON.stringify(youtube),
-        err => console.error
-      );
-      setTimeout(message.channel.send("Channel added."), 3000);
+      fs.writeFile("./youtube.json", JSON.stringify(youtube));
     }
   };
 
