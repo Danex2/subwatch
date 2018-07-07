@@ -6,9 +6,12 @@ const youtube = require("../youtube.json");
 module.exports.run = async (bot, message, args) => {
   const [channel_id, channel_name] = [...args];
   addChannel = (id, name) => {
-    if (youtube.channels.filter(e => e.id === id).length > 0) {
+    if (
+      youtube.channels.filter(e => e.id === id).length > 0 ||
+      youtube.channels.filter(i => i.name === name).length > 0
+    ) {
       message.channel.send(
-        "A channel with that ID already exists, do ``$list`` to see channels that are already added."
+        "A channel with that ID or name already exists, do ``$list`` to see channels that are already added."
       );
     } else {
       youtube.channels.push({ name, id });
