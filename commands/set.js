@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
       youtube.channels.filter(i => i.name === name).length > 0
     ) {
       message.channel.send(
-        "A channel with that ID or name already exists, do ``$list`` to see channels that are already added."
+        "A channel with that ID or name already exists, do ``!list`` to see channels that are already added."
       );
     } else {
       youtube.channels.push({ name, id });
@@ -19,7 +19,11 @@ module.exports.run = async (bot, message, args) => {
     }
   };
 
-  addChannel(channel_id, channel_name);
+  if (channel_id === undefined || channel_name === undefined) {
+    message.channel.send("ID or name invalid, see !help if you need guidance.");
+  } else {
+    addChannel(channel_id, channel_name);
+  }
 };
 
 module.exports.help = {
