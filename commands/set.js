@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
       );
     } else {
       youtube.channels.push({ id, name });
-      fs.writeFile("./youtube.json", JSON.stringify(youtube));
+      fs.writeFile("./youtube.json", JSON.stringify(youtube, null, 2));
     }
   };
 

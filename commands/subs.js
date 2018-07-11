@@ -7,25 +7,29 @@ module.exports.run = async (bot, message, args) => {
   name = args[0];
   const result = youtube.channels.find(channel_id => channel_id.name === name)
     .id;
-  axios
-    .get("https://www.googleapis.com/youtube/v3/channels", {
-      params: {
-        part: "statistics",
-        id: result,
-        key: botSettings.ytKey
-      }
-    })
-    .then(function(response) {
-      // handle success
-      message.channel.send(
-        `${name} has ${
-          response.data.items[0].statistics.subscriberCount
-        } subscribers!`
-      );
-    })
-    .catch(function(error) {
-      message.channel.send("Error fetching data.");
-    });
+  if (result === undefined) {
+    message.channel.send("No channel found with that name.");
+  } else {
+    axios
+      .get("https://www.googleapis.com/youtube/v3/channels", {
+        params: {
+          part: "statistics",
+          id: result,
+          key: botSettings.ytKey
+        }
+      })
+      .then(function(response) {
+        // handle success
+        message.channel.send(
+          `${name} has ${
+            response.data.items[0].statistics.subscriberCount
+          } subscribers!`
+        );
+      })
+      .catch(function(error) {
+        message.channel.send("Error fetching data.");
+      });
+  }
 };
 
 module.exports.help = {

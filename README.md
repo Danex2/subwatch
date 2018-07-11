@@ -8,3 +8,6 @@
 !subs < name > | get the current subscriber count for the youtube channel  
 
 !list | list the current channels being tracked
+
+## Notes & TODO
+Currently you can only add channels that have an ID in the channel URL, eventually I'll make it to where you can use an ID or channel name
