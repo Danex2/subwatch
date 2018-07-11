@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         "A channel with that ID or name already exists, do ``!list`` to see channels that are already added."
       );
     } else {
-      youtube.channels.push({ name, id });
+      youtube.channels.push({ id, name });
       fs.writeFile("./youtube.json", JSON.stringify(youtube));
     }
   };
