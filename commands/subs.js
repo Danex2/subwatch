@@ -7,6 +7,10 @@ module.exports.run = async (bot, message, args) => {
   name = args[0];
   const result = youtube.channels.find(channel_id => channel_id.name === name)
     .id;
+
+  const numberWithCommas = x => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   if (result === undefined) {
     message.channel.send("No channel found with that name.");
   } else {
@@ -21,9 +25,9 @@ module.exports.run = async (bot, message, args) => {
       .then(function(response) {
         // handle success
         message.channel.send(
-          `${name} has ${
+          `${name} has ${numberWithCommas(
             response.data.items[0].statistics.subscriberCount
-          } subscribers!`
+          )} subscribers!`
         );
       })
       .catch(function(error) {

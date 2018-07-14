@@ -7,7 +7,9 @@
 
 !subs < name > | get the current subscriber count for the youtube channel  
 
-!list | list the current channels being tracked
+!list | list the current channels being tracked  
+
+!getid < name > | get the id of the channel by name (temporary fix for my problem)
 
 ## Notes & TODO
 Currently you can only add channels that have an ID in the channel URL, eventually I'll make it to where you can use an ID or channel name
